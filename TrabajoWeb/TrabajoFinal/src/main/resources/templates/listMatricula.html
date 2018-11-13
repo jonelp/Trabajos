@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a th:href="@{/matricula/registrar}" id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Agregar Matricula
+					</a>
+					
+					<a th:href="@{/matricula/irBuscar}"  type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="	glyphicon glyphicon-search"></span> Buscar Matricula
+					</a>
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">Fecha de Matricula</th>
+								<th class="text-center">Nombre del Estudiante</th>
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="ma: ${listaMATRICULA}">
+								<td th:text="${ma.idMatricula}"></td>
+								<td th:text="${ma.fechaMatricula}"></td>
+								<td th:text="${ma.estudiante.nombreEstudiante}"></td>
+								<td><a th:href="@{/matricula/eliminar?id=}+${ma.idMatricula}">Eliminar</a></td>
+								<td><a th:href="@{/matricula/modificar?id=}+${ma.idMatricula}">Modificar</a></td>
+
+
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+			<p th:text="${Mensaje}"></p>
+		</form>
+	</div>
+
+</body>
+</html>

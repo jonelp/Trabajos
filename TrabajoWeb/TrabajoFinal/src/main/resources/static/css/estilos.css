@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+body{
+    background: url(../imagenes/fondo.jpg);
+    background-size: 100% 155%;
+    backgroun-attachment:ficexd;
+
+    font-family: Roboto;
+}
+
+	nav ul{
+	padding: 0;
+	
+	}
+	
+	nav a{
+	color:#ddd;
+	display:black;
+	padding: 0.2.5em;
+	text-decoration: none:
+	transition: .4s;
+	}
+	
+	
+	
+	nav>ul{
+	float:left;
+	background:#333;
+	display: table;
+	
+	}
+	
+	
+	
+	
+	

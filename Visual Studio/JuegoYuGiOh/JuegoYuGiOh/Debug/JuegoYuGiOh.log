@@ -1,0 +1,18 @@
+﻿  Duelo.cpp
+  Intro.cpp
+  Juego.cpp
+  MyForm.cpp
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\tienda.h(214): warning C4018: '<': no coinciden signed/unsigned
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\tienda.h(225): warning C4018: '<': no coinciden signed/unsigned
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\cvecbotones.h(58): warning C4018: '<': no coinciden signed/unsigned
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\cvecbotones.h(73): warning C4018: '<': no coinciden signed/unsigned
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\cvecbotones.h(82): warning C4018: '<': no coinciden signed/unsigned
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\cintro.h(37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\cintro.h(36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\jonel 1\desktop\universidad\trabajos\tareas porgra ii\juegoyugioh\juegoyugioh\myform.cpp(10): warning C4551: la llamada a la función no tiene lista de argumentos
+  Tienda.cpp
+  Generando código...
+  .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+  Duelo.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  Duelo.obj : se encontr≤ un m≤dulo MSIL; vinculaci≤n incremental deshabilitada para MSIL; ejecutando vφnculo completo
+  JuegoYuGiOh.vcxproj -> C:\Users\JONEL 1\Desktop\Universidad\TRABAJOS\Tareas Porgra II\JuegoYuGiOh\Debug\JuegoYuGiOh.exe

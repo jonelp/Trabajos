@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/estudiante.js}"></script>
+
+
+
+</head>
+<body>
+
+
+
+	<div th:replace="fragments/header :: header"></div>
+		<div class="container">
+
+
+	<form th:action="@{/estudiante/registrar}" method="post"
+		th:object="${estudiante}">
+
+		<div class="form-group">
+			<label for="idEstudiante">ID:</label> <input type="text"
+				class="form-control" th:field="*{idEstudiante}" id="idEstudiante"></input>
+		</div>
+
+
+		<div class="form-group">
+			<label for="nombre">Nombre :</label> <input type="text"
+				th:field="*{nombreEstudiante}" class="form-control" id="nombre"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('nombreEstudiante')}"
+				th:errors="*{nombreEstudiante}"></div>
+		</div>
+
+
+
+		<div class="form-group">
+			<label for="fechaEstudiante">Fecha de Nacimiento:</label> <input type="date"
+				class="form-control" th:field="*{fechaEstudiante}"
+				id="fechaEstudiante"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('fechaEstudiante')}"
+				th:errors="*{fechaEstudiante}"></div>
+		</div>
+
+
+
+		<div class="form-group">
+			<label for="apoderado">Nombre del Apoderado:</label> <select
+				th:field="*{apoderado.idApoderado}">
+				<option th:each="a:${listaAPODERADO}" th:value="${a.idApoderado}"
+					th:text="${a.nombreApoderado}"
+					th:selected="(${a.idApoderado} == *{apoderado.idApoderado})"></option>
+			</select>
+
+
+
+		</div>
+
+		<button type="submit" class="btn btn-primary">Aceptar</button>
+		<a href="/estudiante/listar" class="btn btn-danger">Cancelar</a>
+
+	</form>
+
+
+
+</div>
+</body>
+</html>

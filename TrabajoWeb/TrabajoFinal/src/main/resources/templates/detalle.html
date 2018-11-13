@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/detalle.js}"></script>
+
+
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+
+	<form th:action="@{/detalle/registrar}" method="post"
+		th:object="${detalle}">
+
+		<div class="form-group">
+			<label for="idDetalle">ID:</label> <input type="text"
+				class="form-control" th:field="*{idDetalle}" id="idDetalle"></input>
+		</div>
+
+		<div class="form-group">
+			<label for="descripcion">Descripcion:</label> <input type="text"
+				th:field="*{descripcionMatricula}" class="form-control" id="descripcion"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('descripcionMatricula')}"
+				th:errors="*{descripcionMatricula}"></div>
+		</div>
+
+		<div class="form-group">
+			<label for="monto">Monto:</label> <input type="text"
+				th:field="*{montoMatricula}" class="form-control" id="monto"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('montoMatricula')}"
+				th:errors="*{montoMatricula}"></div>
+		</div>
+
+
+
+
+
+
+
+		<div class="form-group">
+			<label for="taller">Taller:</label> <select
+				th:field="*{taller.idTaller}">
+				<option th:each="t:${listaTALLER}" th:value="${t.idTaller}"
+					th:text="${t.nombreTaller}"
+					th:selected="(${t.idTaller} == *{taller.idTaller})"></option>
+			</select>
+
+		</div>
+		
+		
+		
+		<div class="form-group">
+			<label for="estudiante">Estudiante:</label> 
+		<select
+				th:field="*{matricula.idMatricula}">
+				<option th:each="m:${listaMATRICULA}" th:value="${m.idMatricula}"
+					th:text="${m.estudiante.nombreEstudiante}"
+					th:selected="(${m.idMatricula} == *{matricula.idMatricula})"></option>
+			</select> 
+			
+		
+
+		</div>
+		
+	
+
+	
+
+
+
+		<button type="submit" class="btn btn-primary">Aceptar</button>
+		<a href="/matricula/irRegistrar" class="btn btn-danger">Cancelar</a>
+
+	</form>
+	</di	v>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Villa Zanelli Guardería</title>
+
+
+
+<link href="css/login.css" rel="stylesheet" type="text/css"></link>
+
+</head>
+<body>
+
+	<div class="contenedor-form">
+		<div class="row">
+			<div class="col-md-offset-5 col-md-3">
+				<div class="form-login">
+					<p class="alert alert-danger" th:if="${error}" th:text="${error}"></p>
+					<p class="alert alert-success" th:if="${msg}" th:text="${msg}"></p>
+
+					<h4 style="text-align:center;" > <br></br> Iniciar Sesion</h4>
+					
+					<form th:action="@{j_spring_security_check}" method="post">
+						<input  type="text" id="Usuario" name="usuario"
+							class="form-control input-sm chat-input" placeholder="Usuario"></input>
+							
+						<br></br> <input type="password" id="Contraseña" name="clave"
+							class="form-control input-sm chat-input" placeholder="Contraseña"></input>
+						
+						<br></br>
+						
+						<div class="wrapper">
+							<span class="group-btn">
+								<input type="submit" value="Iniciar Sesion" class="btn btn-primary btn-md" />
+								
+							</span>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

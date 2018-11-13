@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+#desplegar.{
+	display: none;
+}
+
+hola{
+	color: blue;
+	background: black;
+}

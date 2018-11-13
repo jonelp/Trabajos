@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a th:href="@{/matricula/irRegistrar}" id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Registrar Matricula
+					</a>
+					
+					<a th:href="@{/detalle/irBuscar}"  type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="	glyphicon glyphicon-search"></span> Buscar Matricula
+					</a>
+					
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">Fecha de Matricula</th>
+								<th class="text-center">Nombre del Estudiante</th>
+								<th class="text-center">Nombre del Taller</th>
+								<th class="text-center">Profesor a Cargo</th>
+								<th class="text-center">Monto</th>
+								<th class="text-center">Horas</th>
+								<th class="text-center">Nombre del Salon</th>
+								<th class="text-center">Monto</th>
+								<th class="text-center">Monto TotaL</th>
+								
+								
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+
+							</tr>
+						</thead>
+						<tbody>
+								<tr th:each="de: ${listaDETALLE}">
+									<td th:text="${de.idDetalle}"></td>
+									<td th:text="${de.descripcionMatricula}"></td>
+									<td th:text="${de.matricula.fechaMatricula}"></td>
+									<td th:text="${de.matricula.estudiante.nombreEstudiante}"></td>
+									<td th:text="${de.taller.nombreTaller}"></td>
+									<td th:text="${de.taller.profesor.nombreProfesor}"></td>
+									<td th:text="${de.taller.horaTaller}"></td>
+									<td th:text="${de.taller.salon.nombreSalon}"></td>
+									<td th:text="${de.montoMatricula}"></td>
+									
+									<td th:text="${de.matricula.calcularmonto()}"></td>
+								
+								<td><a th:href="@{/detalle/eliminar?id=}+${de.idDetalle}">Eliminar</a></td>
+								<td><a th:href="@{/detalle/modificar?id=}+${de.idDetalle}">Modificar</a></td>
+
+
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+			<p th:text="${Mensaje}"></p>
+		</form>
+	</div>
+
+</body>
+</html>

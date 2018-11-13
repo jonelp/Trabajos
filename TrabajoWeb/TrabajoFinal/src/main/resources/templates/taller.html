@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/taller.js}"></script>
+
+
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+
+
+	<form th:action="@{/taller/registrar}" method="post"
+		th:object="${taller}">
+
+		<div class="form-group">
+			<label for="idTaller">ID:</label> <input type="text"
+				 class="form-control" th:field="*{idTaller}"
+				id="idTaller"></input>
+		</div>
+
+		
+		<div class="form-group">
+			<label for="nombre">Nombre del Taller:</label> <input type="text"
+				th:field="*{nombreTaller}" class="form-control" id="nombre"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('nombreTaller')}"
+				th:errors="*{nombreTaller}"></div>
+		</div>
+		
+		<div class="form-group">
+			<label for="descripcion">Descripcion:</label> <input type="text"
+				th:field="*{descripcionTaller}" class="form-control" id="descripcion"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('descripcionTaller')}"
+				th:errors="*{descripcionTaller}"></div>
+		</div>
+		
+		<div class="form-group">
+			<label for="capacidad">Capacidad:</label> <input type="text"
+				th:field="*{capacidadTaller}" class="form-control" id="capacidad"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('capacidadTaller')}"
+				th:errors="*{capacidadTaller}"></div>
+		</div>
+
+		
+
+
+		<div class="form-group">
+			<label for="hora">Horas:</label> <input type="text"
+				class="form-control" th:field="*{horaTaller}" id="hora"></input>
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('horaTaller')}"
+				th:errors="*{horaTaller}"></div>
+		</div>
+		
+		
+		<div class="form-group">
+			<label for="profesor">Profesor:</label> 
+			<select  th:field="*{profesor.idProfesor}" >
+				<option th:each="pro:${listaPROFESOR}"
+					th:value="${pro.idProfesor}" th:text="${pro.nombreProfesor}" 
+					 th:selected="(${pro.idProfesor} == *{profesor.idProfesor})"></option>
+			</select>		
+		</div>
+		
+		<div class="form-group">
+			<label for="salon">Salon:</label> 
+			<select  th:field="*{salon.idSalon}" >
+				<option th:each="sal:${listaSALON}"
+					th:value="${sal.idSalon}" th:text="${sal.nombreSalon}" 
+					 th:selected="(${sal.idSalon} == *{salon.idSalon})"></option>
+			</select>		
+		</div>
+
+
+
+		<button type="submit" class="btn btn-primary">Aceptar</button>
+		<a href="/taller/listar" class="btn btn-danger">Cancelar</a>
+
+	</form>
+	</div>
+</body>
+</html>
